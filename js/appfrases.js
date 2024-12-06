@@ -11,13 +11,50 @@ const frases = [
 
 const app = Vue.createApp({
     methods: {
-        cambiarMensaje() {
-            
+        agregarFrase() {
+            console.log(this.frase);
+            console.log(this.autor);
+
+            const nuevaFrase = {
+                frase: this.frase,
+                autor: this.autor
+            }
+
+            this.listafrases.unshift(nuevaFrase);
+
+        },
+        agregarFraseFinal() {
+            console.log(this.frase);
+            console.log(this.autor);
+
+            const nuevaFrase = {
+                frase: this.frase,
+                autor: this.autor
+            }
+
+            this.listafrases.push(nuevaFrase);
+
+        },
+        eventoKeyPress(event) {
+            if (event.key === 'Enter') {
+                console.log(event);
+                this.agregarFraseFinal();
+            }
+        },
+        eventoKeyPressModificador(event) {
+            console.log('Evento');
+            console.log(event.key);
+            console.log(event.keyCode);
+            console.log(event.code);
+            console.log(event.target.baseURI);
+            this.agregarFraseFinal();
         }
     },
     data() {
         return {
-            listafrases: frases
+            listafrases: frases,
+            frase: null,
+            autor: null
         }
     }
 })
