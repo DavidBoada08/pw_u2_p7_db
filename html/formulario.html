@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="myApp">
+        <h1>Formulario</h1>
+       
+        <form>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <br>
+                <input type="text" id="nombre" v-model="persona.nombre">
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label>
+                <br>
+                <input type="text" id="apellido" v-model="persona.apellido">
+            </div>
+            <div>
+                <label for="hobbie">Hobbie:</label>
+                <br>
+                <input type="text" id="hobbie" v-model="persona.hobbie">
+            </div>
+            <div>
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <br>
+                <input type="date" id="fechaNacimiento" v-model="persona.fechaNacimiento">
+            </div>
+            <br><br>
+            <button type="button" v-on:click="agregarPersona">Almacenar</button>
+        </form>
+ 
+        <hr>
+ 
+        <div>
+            <h3>Datos Ingresados:</h3>
+            <p>Nombre: {{ persona.nombre }}</p>
+            <p>Apellido: {{ persona.apellido }}</p>
+            <p>Hobbie: {{ persona.hobbie }}</p>
+            <p>Fecha: {{ persona.fechaNacimiento }}</p>
+        </div>
+ 
+        <hr>
+ 
+        <ul>
+            <li v-for="persona in listaPersonas" :key="persona.nombre + persona.apellido">
+                {{ persona.nombre }} - {{ persona.apellido }} - {{ persona.hobbie }} - {{ persona.fechaNacimiento }}
+            </li>
+        </ul>
+ 
+    </div>
+ 
+    <script src="../js/appformulario.js"></script>
+</body>
+</html>
